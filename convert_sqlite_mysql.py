@@ -76,12 +76,7 @@ for table in tables:
                 definition += f" DEFAULT {d}"
         cols.append(definition)
 
-    if pk_cols and not any(
-        r["pk"] and len(pk_cols) == 1 and "INT" in (r["type"] or "").upper()
-        for r in info
-    ):
-        cols.append("PRIMARY KEY (" + ", ".join(f"`{c}`" for c in pk_cols) + ")")
-    elif len(pk_cols) > 1:
+    if pk_cols:
         cols.append("PRIMARY KEY (" + ", ".join(f"`{c}`" for c in pk_cols) + ")")
 
     if table == "kecamatans":

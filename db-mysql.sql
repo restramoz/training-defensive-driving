@@ -9,7 +9,8 @@ DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `migration` VARCHAR(255) NOT NULL,
-  `batch` BIGINT NOT NULL
+  `batch` BIGINT NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `users`;
@@ -23,7 +24,8 @@ CREATE TABLE `users` (
   `remember_token` VARCHAR(255),
   `created_at` DATETIME,
   `updated_at` DATETIME,
-  `is_admin` BIGINT NOT NULL DEFAULT '0'
+  `is_admin` BIGINT NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `articles`;
@@ -44,7 +46,8 @@ CREATE TABLE `articles` (
   `status` VARCHAR(255) NOT NULL DEFAULT 'draft',
   `published_at` DATETIME,
   `created_at` DATETIME,
-  `updated_at` DATETIME
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `cities`;
@@ -61,7 +64,8 @@ CREATE TABLE `cities` (
   `is_hub` BIGINT NOT NULL DEFAULT '0',
   `status` VARCHAR(255) NOT NULL DEFAULT 'active',
   `created_at` DATETIME,
-  `updated_at` DATETIME
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `kecamatans`;
@@ -75,6 +79,7 @@ CREATE TABLE `kecamatans` (
   `status` VARCHAR(255) NOT NULL DEFAULT 'active',
   `created_at` DATETIME,
   `updated_at` DATETIME,
+  PRIMARY KEY (`id`),
   KEY `kecamatans_city_id_index` (`city_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
