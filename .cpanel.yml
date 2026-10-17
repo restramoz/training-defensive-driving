@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export APP=/home/traz9948/public_html/sertifikasip3k
+    - /bin/rsync -a --exclude='.git' --exclude='.env' --exclude='node_modules' --exclude='storage/logs' ./ $APP/
